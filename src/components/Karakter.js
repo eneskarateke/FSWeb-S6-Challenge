@@ -1,6 +1,7 @@
 // Karakter bileşeniniz buraya gelecek
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const KarakterCard = styled.div`
   display: flex;
@@ -41,14 +42,18 @@ const CardBody = styled.div`
 
 `;
 
-function Karakter({data}) {
-  const [openIndex, setOpenIndex] = React.useState(null);
+function Karakter({data, filmler}) {
+  const [openIndex, setOpenIndex] = useState(null);
+  // const [openFilmIndex, setOpenFilmIndex] = useState(null);
+  // console.log("filmler", filmler)
   
-  // console.log("karakterler: ", data)
 
   const handleClick = (index) => {
     setOpenIndex(openIndex === index ? null : index);
-  }
+  };
+  // const handleFilmClick = (filmIndex) => {
+  //   setOpenFilmIndex(openFilmIndex === filmIndex ? null : filmIndex);
+  // };
 
   return (
     <KarakterCard>
@@ -67,13 +72,34 @@ function Karakter({data}) {
                 <p>Eye color: {karakter.eye_color}</p>
                 <p>Birth year: {karakter.birth_year}</p>
                 <p>Gender: {karakter.gender}</p>
-                <p>Films: {karakter.films}</p>
+                {/* <ul>
+                  {karakter.films.map((filmUrl, i) => {
+                    const film = filmler.find((f) => f.url === filmUrl);
+                    return (
+                      <li key={i}>
+                        <Button onClick={() => handleFilmClick(film)}>
+                          {film.title}
+                        </Button>
+                        {openFilmIndex === i && (
+                          <div>
+                            <p>Director: {film.director}</p>
+                            <p>Producer: {film.producer}</p>
+                            <p>Release date: {film.release_date}</p>
+                            <p>Opening crawl: {film.opening_crawl}</p>
+                          </div>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul> */}
               </CardBody>
             </Collapse>
           </div>
         ))}
     </KarakterCard>
   );
+  
+  
 };
 
 export default Karakter;
