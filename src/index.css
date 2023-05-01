@@ -1,7 +1,39 @@
 body {
+  color: white;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: url('./images/sw-bg.jpg');
+  background: rgba(0, 0, 0, 0.5);
   background-size: cover;
+}
+
+h1,
+h2 {
+  color: gold;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 20%;
+}
+
+.accordeon {
+  background-color: rgba(138, 49, 49, 0.5);
+  border-radius: 1rem;
+  margin-bottom: 0.5rem;
+  min-width: 400px;
+}
+
+.accordeon__title {
+  color: rgb(255, 230, 0);
+  padding: 1rem 2rem;
+}
+
+.accordeon__detail {
+  padding: 0.5rem 2rem;
+  background-color: rgba(50, 50, 50, 0.5);
 }
